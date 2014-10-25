@@ -134,27 +134,27 @@ end
 
 ### THEN ###
 Then /^I should be signed in$/ do
-  page.should have_content "Logout"
-  page.should_not have_content "Sign up"
-  page.should_not have_content "Login"
+  expect(page).to have_content "Logout"
+  expect(page).to_not have_content "Sign up"
+  expect(page).to_not have_content "Login"
 end
 
 Then /^I should be signed out$/ do
-  page.should have_content "Sign up"
-  page.should have_content "Login"
-  page.should_not have_content "Logout"
+  expect(page).to have_content "Sign up"
+  expect(page).to have_content "Login"
+  expect(page).to_not have_content "Logout"
 end
 
 Then /^I see an unconfirmed account message$/ do
-  page.should have_content "You have to confirm your account before continuing."
+  expect(page).to have_content "You have to confirm your account before continuing."
 end
 
 Then /^I see a successful sign in message$/ do
-  page.should have_content "Signed in successfully."
+  expect(page).to have_content "Signed in successfully."
 end
 
 Then /^I should see a successful sign up message$/ do
-  page.should have_content "Welcome! You have signed up successfully."
+  expect(page).to have_content "Welcome! You have signed up successfully."
 end
 
 Then /^I should see an invalid email message$/ do
@@ -162,30 +162,30 @@ Then /^I should see an invalid email message$/ do
 end
 
 Then /^I should see a missing password message$/ do
-  page.should have_content "Password can't be blank"
+  expect(page).to have_content "Password can't be blank"
 end
 
 Then /^I should see a missing password confirmation message$/ do
-  page.should have_content "Password confirmation doesn't match Password"
+  expect(page).to have_content "Password confirmation doesn't match Password"
 end
 
 Then /^I should see a mismatched password message$/ do
-  page.should have_content "Password confirmation doesn't match Password"
+  expect(page).to have_content "Password confirmation doesn't match Password"
 end
 
 Then /^I should see a signed out message$/ do
-  page.should have_content "You need to sign in or sign up before continuing."
+  expect(page).to have_content "You need to sign in or sign up before continuing."
 end
 
 Then /^I see an invalid login message$/ do
-  page.should have_content "Invalid email or password."
+  expect(page).to have_content "Invalid email or password."
 end
 
 Then /^I should see an account edited message$/ do
-  page.should have_content "You updated your account successfully."
+  expect(page).to have_content "You updated your account successfully."
 end
 
 Then /^I should see my name$/ do
   create_user
-  page.should have_content @user[:name]
+  expect(page).to have_content @user[:name]
 end
