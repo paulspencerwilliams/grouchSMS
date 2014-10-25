@@ -1,6 +1,6 @@
 
 Given(/^I am not logged in$/) do
-    visit '/users/sign_out'
+    visit '/'
 end
 
 When(/^I register with valid user credentials$/) do
