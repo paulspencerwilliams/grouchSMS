@@ -1,3 +1,12 @@
 #new_user input[type='submit']{
   margin-top: 10px;
 }
+
+#footer{
+  margin: 15px;
+}
+
+.navbar-brand img{
+  height: 25px;
+  width: auto;
+}

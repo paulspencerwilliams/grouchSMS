@@ -5,13 +5,22 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <script type='text/javascript' src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag "bootstrap.min" %>
+    <%= stylesheet_link_tag "custom" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
     <nav class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
-      <span class="navbar-brand">GrouchSMS</span>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <span class="navbar-brand">
+        <img src="images/grouch.png" />
+        GrouchSMS
+      </span>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
@@ -25,25 +34,26 @@
       </ul>
     </div>
     </nav>
-    
-    <div class="container-fluid">
-    <% if notice %>
-      <div class="alert alert-warning" role="alert">
-        <p class="notice"><%= notice %></p>
-      </div>
-    <% end %>
-    <% if alert %>
-      <div class="alert alert-danger">
-        <p class="alert"><%= alert %></p>
-      </div>
-    <% end %>
 
-    <%= yield %>
-  </div>
-    <footer id="footer">
+    <div class="container-fluid">
+      <div class="jumbotron">
+        <% if notice %>
+          <div class="alert alert-warning" role="alert">
+            <p class="notice"><%= notice %></p>
+          </div>
+        <% end %>
+        <% if alert %>
+          <div class="alert alert-danger">
+            <p class="alert"><%= alert %></p>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
     <% if user_signed_in? %>
+    <footer id="footer" class="jumbotron">
       Logged in as <strong><%= current_user.email %></strong>
-    <% end %>
     </footer>
+    <% end %>
   </body>
 </html>
