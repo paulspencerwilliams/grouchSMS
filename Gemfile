@@ -39,7 +39,8 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 group :development do
-    gem 'guard-rails'
+    gem 'guard-rspec'
+    gem 'guard-cucumber'
 end
 
 group :development, :test do
