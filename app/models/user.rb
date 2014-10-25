@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :phone, presence: true
+
   def self.wanting_weather
     User.where(:weather => true)
   end
