@@ -2,10 +2,18 @@
 <p>Welcome to GrouchSMS, your personal infomation assistant. Tell Grouch what you want to know and it'll text you when you need to know it!</p>
 
 <% if user_signed_in? %>
+  <button id="authbtn" class="btn btn-default" value="calauth">Auth Google Calendar</button>
   <script type="text/javascript">
     $(document).ready(function(){
+        bind_authclick();
         get_location();
         });
+
+function bind_authclick(){
+  $('#authbtn').on('click', function(){
+        auth();
+      });
+}
 
 function get_location(){
   navigator.geolocation.getCurrentPosition(function(position){
@@ -30,6 +38,16 @@ function get_location(){
         }
         });
     });
+}
+
+function auth(){
+  var config ={
+    'client_id': '666739325838-ismugg1ag4s3j0aniv04q1nn0hfopc92.apps.googleusercontent.com',
+    'scope': 'https://www.googleapis.com/auth/calendar.readonly'
+  };
+  gapi.auth.authorize(config, function(){
+      alert('Auhtorisation complete!');
+      });
 }
 </script>
 <% end %>
