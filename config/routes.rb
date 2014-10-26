@@ -15,7 +15,9 @@ Rails.application.routes.draw do
    # root 'visitors#welcome'
   get 'users/wanting_weather' => 'users#wanting_weather'
   post 'users/update_location' => 'users#update_location'
-  
+  post 'users/update_authtoken' => 'users#update_authtoken'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

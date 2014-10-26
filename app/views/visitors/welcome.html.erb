@@ -46,7 +46,26 @@ function auth(){
     'scope': 'https://www.googleapis.com/auth/calendar.readonly'
   };
   gapi.auth.authorize(config, function(){
-      alert('Auhtorisation complete!');
+      var auth = gapi.auth.getToken();
+
+      var model = {
+        user_id:  <%= current_user.id %>,
+        accesstoken: auth['access_token']
+     };
+
+      $.ajax({
+          url: '/users/update_authtoken?&authenticity_token=' + AUTH_TOKEN,
+          type: "POST",
+          dataType: "json",
+          contentType: "application/json; charset=utf-8",
+          data: JSON.stringify(model),
+          success: function(){
+
+          },
+          error: function(){
+            
+          }
+        });
       });
 }
 </script>

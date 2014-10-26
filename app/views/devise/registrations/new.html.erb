@@ -27,6 +27,13 @@
     <%= f.text_field :twitterhandle, class: "form-control" %>
   </div>
 
+  <div>
+    <%= f.label :weather do %>
+      <%= f.check_box :weather, class: "form-control" %>
+      Do you want weather notifications?
+    <% end %>
+  </div>
+
   <div><%= f.submit "Sign up", class: "btn btn-default" %></div>
 <% end %>
 

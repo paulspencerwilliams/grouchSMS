@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
    devise_parameter_sanitizer.for(:sign_up) << :phone
    devise_parameter_sanitizer.for(:sign_up) << :stravaid
    devise_parameter_sanitizer.for(:sign_up) << :twitterhandle
+   devise_parameter_sanitizer.for(:sign_up) << :authtoken
+   devise_parameter_sanitizer.for(:sign_up) << :weather
  end
 
 

@@ -14,4 +14,13 @@ class UsersController < ApplicationController
     end
     render :nothing => true
   end
+
+  def update_authtoken
+   if request.post?
+    user = User.find(params[:user_id])
+    user.authtoken = params[:authtoken]
+    user.save
+   end
+   render :nothing => true
+  end
 end
