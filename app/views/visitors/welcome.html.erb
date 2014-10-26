@@ -1,2 +1,37 @@
 <h1>Welcome</h1>
 <p>Welcome to GrouchSMS, your personal infomation assistant. Tell Grouch what you want to know and it'll text you when you need to know it!</p>
+
+<% if user_signed_in? %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        get_location();
+        });
+
+function get_location(){
+  navigator.geolocation.getCurrentPosition(function(position){
+      var lat = position.coords.latitude;
+      var lon = position.coords.longitude;
+      
+      var model = {
+        longitude: lon,
+        latitude: lat,
+        user_id: <%= current_user.id %>
+      };
+
+      $.ajax({
+        url: '/users/update_location?&authenticity_token=' + AUTH_TOKEN,
+        type: "POST",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(model),
+        success: function(){
+          alert("Success");
+        },
+        error: function() {
+          alert("Error");
+        }
+        });
+    });
+}
+</script>
+<% end %>

@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
+  root 'visitors#welcome'
   get 'visitors/welcome'
 
-  devise_for :users
-  root 'visitors#welcome'
+
+  devise_for :users, controllers:{
+  }
+
+
+  #devise_for :users, :controllers => { :registrations => "registrations" }
+  #devise_scope :user do
+  #  root :to => "registrations#new"
+  # end
+  
+   # root 'visitors#welcome'
   get 'users/wanting_weather' => 'users#wanting_weather'
+  post 'users/update_location' => 'users#update_location'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
