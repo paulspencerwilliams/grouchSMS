@@ -18,8 +18,13 @@
   </div>
 
   <div>
-    <%= f.label :stravaid %><br/>
+    <%= f.label :stravaid, "Strava ID" %><br/>
     <%= f.text_field :stravaid, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= f.label :twitterhandle, "Twitter handle" %><br/>
+    <%= f.text_field :twitterhandle, class: "form-control" %>
   </div>
 
   <div><%= f.submit "Sign up", class: "btn btn-default" %></div>
